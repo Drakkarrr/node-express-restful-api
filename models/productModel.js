@@ -14,7 +14,7 @@ const productSchema = new mongoose.Schema(
       type: String,
       required: [true, 'Please enter product description'],
     },
-    quatity: {
+    quantity: {
       type: Number,
       required: [true, 'Please enter product quantity'],
       default: 0,
@@ -24,10 +24,10 @@ const productSchema = new mongoose.Schema(
       required: true,
       default: 0,
     },
-    image: {
-      type: String,
-      required: true,
-    },
+    // image: {
+    //   type: String,
+    //   required: true,
+    // },
   },
   {
     timestamps: true,

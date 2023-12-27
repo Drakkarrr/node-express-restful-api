@@ -7,12 +7,19 @@ const MONGO_URI = 'mongodb+srv://admin:admin123@node-api.pmvypez.mongodb.net/';
 
 //! routes
 
+app.use(express.json());
+
 app.get('/', (req, res) => {
   res.send('Hello Node API');
 });
 
-app.get('/api', (req, res) => {
-  res.json({ message: 'Welcome to the Node API' });
+app.get('/blog', (req, res) => {
+  res.json({ message: 'Welcome to the Node API Blog section' });
+});
+
+app.post('/product', (req, res) => {
+  console.log(req.body);
+  res.send(req.body);
 });
 
 //! connect to mongodb
