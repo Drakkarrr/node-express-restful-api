@@ -9,6 +9,7 @@ const MONGO_URI = 'mongodb+srv://admin:admin123@node-api.pmvypez.mongodb.net/';
 //! routes
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
   res.send('Hello Node API');
@@ -54,6 +55,18 @@ app.put('/products/:id', async (req, res) => {
     if (!product) res.status(404).json({ message: 'Product not found' });
     const updatedProduct = { ...product._doc, ...req.body };
     res.status(200).json(updatedProduct);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+app.delete('/products/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const product = await Products.findByIdAndDelete(id);
+    !product
+      ? res.status(404).json({ message: 'Product not found' })
+      : res.status(200).json({ message: 'Product deleted successfully' });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
