@@ -1,7 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import Products from './models/productModel.js';
 import dotenv from 'dotenv';
+import productRoutes from './routes/products.js';
 
 const app = express();
 dotenv.config();
@@ -18,6 +18,8 @@ app.get('/', (req, res) => {
 app.get('/blog', (req, res) => {
   res.json({ message: 'Welcome to the Node API Blog section' });
 });
+
+app.use('/', productRoutes);
 
 //! connect to mongodb
 mongoose
