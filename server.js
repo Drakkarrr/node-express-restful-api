@@ -1,5 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import Product from './models/productModel.js';
 
 const app = express();
 const PORT = 8000;
@@ -17,9 +18,14 @@ app.get('/blog', (req, res) => {
   res.json({ message: 'Welcome to the Node API Blog section' });
 });
 
-app.post('/product', (req, res) => {
-  console.log(req.body);
-  res.send(req.body);
+app.post('/product', async (req, res) => {
+  try {
+    const product = await Product.create(req.body);
+    res.status(200).json(product);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: error.message });
+  }
 });
 
 //! connect to mongodb

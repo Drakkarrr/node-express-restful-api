@@ -2,10 +2,6 @@ import mongoose from 'mongoose';
 
 const productSchema = new mongoose.Schema(
   {
-    id: {
-      type: Number,
-      required: true,
-    },
     name: {
       type: String,
       required: [true, 'Please enter product name'],
@@ -24,10 +20,6 @@ const productSchema = new mongoose.Schema(
       required: true,
       default: 0,
     },
-    // image: {
-    //   type: String,
-    //   required: true,
-    // },
   },
   {
     timestamps: true,
