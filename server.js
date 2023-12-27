@@ -37,6 +37,16 @@ app.post('/products', async (req, res) => {
   }
 });
 
+app.get('/products/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const product = await Products.findById(id);
+    res.status(200).json(product);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 //! connect to mongodb
 mongoose
   .connect(MONGO_URI)
