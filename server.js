@@ -1,10 +1,10 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import Products from './models/productModel.js';
+import dotenv from 'dotenv';
 
 const app = express();
-const PORT = 8000;
-const MONGO_URI = 'mongodb+srv://admin:admin123@node-api.pmvypez.mongodb.net/';
+dotenv.config();
 
 //! routes
 
@@ -75,12 +75,12 @@ app.delete('/products/:id', async (req, res) => {
 
 //! connect to mongodb
 mongoose
-  .connect(MONGO_URI)
+  .connect(process.env.MONGO_URI)
   .then(() => {
     console.log('Connected to MongoDB');
 
-    app.listen(PORT, () => {
-      console.log(`Server is listening on port ${PORT}`);
+    app.listen(process.env.PORT, () => {
+      console.log(`Server is listening on port ${process.env.PORT}`);
     });
   })
   .catch((err) => {
