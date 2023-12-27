@@ -1,4 +1,4 @@
-import Employee from '../models/employeeModel';
+import Employee from './../models/employeeModel.js';
 
 export const getEmployees = async (req, res) => {
   try {
@@ -15,6 +15,16 @@ export const createEmployee = async (req, res) => {
     res.status(200).json(employee);
   } catch (error) {
     console.log(error);
+    res.status(500).json({ message: error.message });
+  }
+};
+
+export const getEmployee = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const employee = await Employee.findById(id);
+    res.status(200).json(employee);
+  } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
