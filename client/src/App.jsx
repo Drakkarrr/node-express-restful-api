@@ -1,13 +1,18 @@
 import './App.css';
-import Customers from './components/Customers';
-import Products from './components/Products';
+import { Routes, Route } from 'react-router-dom';
+
+import LandingPage from './pages/LandingPage';
+import CustomerPage from './pages/CustomerPage';
+import ProductsPage from './pages/ProductsPage';
 
 function App() {
   return (
     <>
-      <h1>Node API data fetching</h1>
-      <Products />
-      <Customers />
+      <Routes>
+        <Route path='/' element={<LandingPage />} />
+        <Route path='/customers' element={<CustomerPage />} />
+        <Route path='/products' element={<ProductsPage />} />
+      </Routes>
     </>
   );
 }
