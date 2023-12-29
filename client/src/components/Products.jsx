@@ -1,7 +1,10 @@
+import { useNavigate } from 'react-router-dom';
+
 const Products = () => {
+  const navigate = useNavigate();
   return (
     <>
-      <button>Fetch Products</button>
+      <button onClick={() => navigate('/products')}>Fetch Products</button>
     </>
   );
 };

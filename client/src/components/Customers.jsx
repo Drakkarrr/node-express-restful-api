@@ -1,7 +1,14 @@
+import { useNavigate } from 'react-router-dom';
+
 const Customers = () => {
+  const navigate = useNavigate();
+  const handleClick = async () => {
+    navigate('/customers');
+  };
+
   return (
     <>
-      <button>Fetch Customers</button>
+      <button onClick={handleClick}>Fetch Customers</button>
     </>
   );
 };
