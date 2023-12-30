@@ -1,16 +1,16 @@
 import { useNavigate } from 'react-router-dom';
 
-const Customers = () => {
+const Employee = () => {
   const navigate = useNavigate();
   const handleClick = async () => {
-    navigate('/customers');
+    navigate('/employees');
   };
 
   return (
     <>
-      <button onClick={handleClick}>Fetch Customers</button>
+      <button onClick={handleClick}>Fetch Employee</button>
     </>
   );
 };
 
-export default Customers;
+export default Employee;

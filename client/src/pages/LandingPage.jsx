@@ -1,4 +1,4 @@
-import Customers from './../components/Customers';
+import Employee from './../components/Employee';
 import Products from '../components/Products';
 
 const LandingPage = () => {
@@ -6,7 +6,7 @@ const LandingPage = () => {
     <>
       <h1>Node API data fetching</h1>
       <Products />
-      <Customers />
+      <Employee />
     </>
   );
 };

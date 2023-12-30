@@ -16,12 +16,18 @@ const ProductsPage = () => {
 
       <div>
         {products.map((product) => (
-          <div key={product.id}>
-            <h2>{product.name}</h2>
-            <p>{product.description}</p>
-            <p>{product.price}</p>
-            <p>{product.quantity}</p>
-          </div>
+          <table key={product.id}>
+            <tr>
+              <th>Product Name</th>
+              <th>Price</th>
+              <th>Description</th>
+            </tr>
+            <tr>
+              <td>{product.name}</td>
+              <td>{product.price}</td>
+              <td>{product.description}</td>
+            </tr>
+          </table>
         ))}
       </div>
     </div>
