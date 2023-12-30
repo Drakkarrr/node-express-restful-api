@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import cors from 'cors';
 import productRoutes from './routes/products.js';
 import employeeRoutes from './routes/employee.js';
 
@@ -11,6 +12,7 @@ dotenv.config();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
 app.get('/', (req, res) => {
   res.send('Hello Node API');
