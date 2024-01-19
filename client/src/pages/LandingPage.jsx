@@ -1,5 +1,6 @@
 import Employee from './../components/Employee';
 import Products from '../components/Products';
+import MyComponentPage from '../components/MyComponentPage';
 
 const LandingPage = () => {
   return (
@@ -7,6 +8,7 @@ const LandingPage = () => {
       <h1>Node API data fetching</h1>
       <Products />
       <Employee />
+      <MyComponentPage />
     </>
   );
 };

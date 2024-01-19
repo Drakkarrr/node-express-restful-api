@@ -1,10 +1,11 @@
 import { useState } from 'react';
+import axios from 'axios';
 
 const EmployeesPage = () => {
   const [employees, setEmployees] = useState([]);
 
   const fetchEmployees = async () => {
-    const response = await fetch('http://localhost:8000/api/employees');
+    const response = await axios.get('http://localhost:8000/api/employees');
     const data = await response.json();
     setEmployees(data);
     console.log(data);
