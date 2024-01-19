@@ -2,7 +2,8 @@ import { useNavigate } from 'react-router-dom';
 
 const Employee = () => {
   const navigate = useNavigate();
-  const handleClick = async () => {
+
+  const handleClick = () => {
     navigate('/employees');
   };
 
