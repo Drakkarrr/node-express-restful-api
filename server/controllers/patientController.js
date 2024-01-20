@@ -27,3 +27,16 @@ export const getPatient = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+export const updatePatient = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const patient = await Patients.findByIdAndUpdate(req.body, id);
+    const updatedPatient = { ...patient._doc, ...req.body };
+    !patient
+      ? res.status(404).json({ message: 'Patient not found' })
+      : res.status(200).json(updatedPatient);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
