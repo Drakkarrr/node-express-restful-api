@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import productRoutes from './routes/products.js';
 import employeeRoutes from './routes/employee.js';
+import patientRoutes from './routes/patient.js';
 
 const app = express();
 dotenv.config();
@@ -24,6 +25,7 @@ app.get('/blog', (req, res) => {
 
 app.use('/api', productRoutes);
 app.use('/api', employeeRoutes);
+app.use('/api', patientRoutes);
 
 //! connect to mongodb
 mongoose
