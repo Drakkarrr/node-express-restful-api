@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
-import './App.css';
-import ReminderList from './components/ReminderList';
-import { Reminder } from './types/reminder';
-import reminderService from './services/reminderService';
-import NewReminder from './components/NewReminder';
+import { Reminder } from '../types/reminder';
+import reminderService from '../services/reminderService';
+import NewReminder from '../components/NewReminder';
+import ReminderList from '../components/ReminderList';
 
-function App() {
+function ReminderPage() {
   const [reminders, setReminders] = useState<Reminder[]>([]);
 
   const addReminder = async (title: string) => {
@@ -27,11 +26,11 @@ function App() {
   }, []);
 
   return (
-    <div className='App'>
+    <div className='page'>
       <NewReminder onAddReminder={addReminder} />
       <ReminderList items={reminders} onDeleteReminder={deleteReminder} />
     </div>
   );
 }
 
-export default App;
+export default ReminderPage;
