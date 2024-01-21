@@ -5,6 +5,7 @@ import LandingPage from './pages/LandingPage';
 import EmployeePage from './pages/EmployeePage';
 import ProductsPage from './pages/ProductsPage';
 import MyComponent from './components/MyComponent';
+import RemindersPage from './pages/RemindersPage';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path='/employees' element={<EmployeePage />} />
         <Route path='/products' element={<ProductsPage />} />
         <Route path='/mycomponent' element={<MyComponent />} />
+        <Route path='/reminders' element={<RemindersPage />} />
       </Routes>
     </>
   );
