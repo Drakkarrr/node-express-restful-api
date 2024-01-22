@@ -37,6 +37,23 @@ export function useFetch(url, options) {
         dispatch({ type: 'fetched', payload: cache.current[url] });
         return;
       }
+
+      try {
+        const response = await fetch(url, options);
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
+
+        const data = await response.json();
+        cache.current[url] = data;
+        if (cancelRequest.current) return;
+
+        dispatch({ type: 'fetched', payload: data });
+      } catch (error) {
+        if (cancelRequest.current) return;
+
+        dispatch({ type: 'error', payload: error });
+      }
     };
 
     void fetchData();
