@@ -10,6 +10,8 @@ export function useFetch(url, options) {
     data: undefined,
   };
 
+  const [state, dispatch] = useReducer(fetchReducer, initialState);
+
   useEffect(() => {
     if (!url) return;
 
