@@ -1,3 +1,3 @@
-# ts-node / React CRUD
+# React x TS Node CRUD
 
-Experiment lang ^^
+Refresher preparation for nerubia technical interview.
